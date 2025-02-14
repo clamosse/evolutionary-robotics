@@ -1,2 +1,4 @@
 data/backLegSensorValues.npy
 data/frontLegSensorValues.npy
+data/backLeg_targetAngles.npy
+data/frontLeg_targetAngles.npy
