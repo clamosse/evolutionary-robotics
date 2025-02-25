@@ -2,3 +2,11 @@ data/backLegSensorValues.npy
 data/frontLegSensorValues.npy
 data/backLeg_targetAngles.npy
 data/frontLeg_targetAngles.npy
+pyrosim/__pycache__/pyrosim.cpython-312.pyc
+__pycache__/world.cpython-312.pyc
+__pycache__/simulation.cpython-312.pyc
+__pycache__/sensor.cpython-312.pyc
+__pycache__/robot.cpython-312.pyc
+__pycache__/motor.cpython-312.pyc
+__pycache__/constants.cpython-312.pyc
+pyrosim/__pycache__/pyrosim.cpython-312.pyc
