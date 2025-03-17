@@ -8,9 +8,15 @@ import time as t
 
 class SIMULATION:
 
-    def __init__(self):
+    def __init__(self, directOrGUI):
 
-        self.physicsClient = p.connect(p.GUI)
+        self.directOrGUI = directOrGUI
+
+        if directOrGUI == "DIRECT":
+            self.physicsClient = p.connect(p.DIRECT)
+
+        else:
+            self.physicsClient = p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
         #p.configureDebugVisualizer(p.COV_ENABLE_GUI,0)
@@ -26,14 +32,18 @@ class SIMULATION:
 
     def Run(self):
         for i in range(0,c.num_steps):
-            print(i)
+            #print(i)
             
             p.stepSimulation()
             self.robot.Sense(i)
             self.robot.Think()
             self.robot.Act(i)   
 
-            t.sleep(c.delta_time)
+            if self.directOrGUI == "GUI": 
+                t.sleep(c.delta_time)      
+
+    def Get_Fitness(self):
+        self.robot.Get_Fitness()
             
     def __del__(self):
         p.disconnect()

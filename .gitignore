@@ -9,9 +9,9 @@ __pycache__/sensor.cpython-312.pyc
 __pycache__/robot.cpython-312.pyc
 __pycache__/motor.cpython-312.pyc
 __pycache__/constants.cpython-312.pyc
-pyrosim/__pycache__/pyrosim.cpython-312.pyc
 pyrosim/__pycache__/constants.cpython-312.pyc
 pyrosim/__pycache__/neuralNetwork.cpython-312.pyc
 pyrosim/__pycache__/neuron.cpython-312.pyc
-pyrosim/__pycache__/pyrosim.cpython-312.pyc
 pyrosim/__pycache__/synapse.cpython-312.pyc
+__pycache__/solution.cpython-312.pyc
+__pycache__/hillclimber.cpython-312.pyc
