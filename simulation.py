@@ -8,9 +8,10 @@ import time as t
 
 class SIMULATION:
 
-    def __init__(self, directOrGUI):
+    def __init__(self, directOrGUI, solutionID):
 
         self.directOrGUI = directOrGUI
+        self.solutionID = solutionID
 
         if directOrGUI == "DIRECT":
             self.physicsClient = p.connect(p.DIRECT)
@@ -23,7 +24,7 @@ class SIMULATION:
 
         self.world = WORLD()
         p.setGravity(0,0,c.gravity)
-        self.robot = ROBOT()
+        self.robot = ROBOT(solutionID)
 
         pyrosim.Prepare_To_Simulate(self.robot.robotId)
         self.robot.Prepare_To_Sense()
@@ -37,7 +38,7 @@ class SIMULATION:
             p.stepSimulation()
             self.robot.Sense(i)
             self.robot.Think()
-            self.robot.Act(i)   
+            self.robot.Act(i)       
 
             if self.directOrGUI == "GUI": 
                 t.sleep(c.delta_time)      
