@@ -20,11 +20,11 @@ class SOLUTION:
         self.Generate_Brain()
         self.Create_Robot
 
-        os.system(f"start /B python simulate.py {directOrGUI} {self.myID}")
+        os.system(f"start /B python simulate.py {directOrGUI} {self.myID} 2>&1 &")
     
     def Wait_For_Simulation_To_End(self):
         while not os.path.exists(f"fitness{self.myID}.txt"):
-            time.sleep(0.01)
+            time.sleep(0.02)
 
         f = open(f"fitness{self.myID}.txt", "r")
         self.fitness = f.read()
