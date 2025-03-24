@@ -14,5 +14,11 @@ frontLeg_frequency = 10
 frontLeg_phaseOffset = np.pi/2
 torso_frontleg_max_force = 50
 
+numSensorNeurons = 5
+numMotorNeurons = 8
+
 numberOfGenerations = 10
 populationSize = 10
+
+motorJointRange = .2
+
