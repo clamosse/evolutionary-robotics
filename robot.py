@@ -46,13 +46,12 @@ class ROBOT:
         """
 
     def Get_Fitness(self):
-        stateOfLinkZero = p.getLinkState(self.robotId,0)
-        positionOfLinkZero = stateOfLinkZero[0]
-        xCoordinateOfLinkZero = positionOfLinkZero[0]
-
+        basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
+        basePosition = basePositionAndOrientation[0]
+        xPosition = basePosition[0]
 
         with open(f"tmp{self.solutionID}.txt", "w") as f:
-            f.write(str(xCoordinateOfLinkZero))
+            f.write(str(xPosition))
 
         os.system(f"ren tmp{self.solutionID}.txt fitness{self.solutionID}.txt")
 
