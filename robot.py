@@ -7,12 +7,16 @@ import os
 import constants as c
 
 class ROBOT:
-
-    def __init__(self,solutionID):
+    def __init__(self, solutionID):
         self.robotId = p.loadURDF("body.urdf")
         self.solutionID = solutionID
-        self.nn = NEURAL_NETWORK(f"brain{solutionID}.nndf")
-        os.system(f"del brain{solutionID}.nndf")
+        if solutionID is None:
+            brain_file = "best_brain.nndf"
+        else:
+            brain_file = f"brain{solutionID}.nndf"
+
+        self.nn = NEURAL_NETWORK(brain_file)
+
 
     def Prepare_To_Sense(self):
         self.sensors = {}

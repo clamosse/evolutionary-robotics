@@ -17,8 +17,8 @@ torso_frontleg_max_force = 50
 numSensorNeurons = 5
 numMotorNeurons = 8
 
-numberOfGenerations = 10
-populationSize = 10
+numberOfGenerations = 20
+populationSize = 5
 
 motorJointRange = .2
 

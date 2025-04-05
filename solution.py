@@ -11,6 +11,8 @@ class SOLUTION:
         self.weights = np.random.rand(c.numSensorNeurons, c.numMotorNeurons)
         self.weights = (self.weights * 2) - 1
         self.myID = nextAvailableID
+        self.age = 0
+        self.fitness = None
         
 
     def Evaluate(self, directOrGUI):
@@ -23,19 +25,30 @@ class SOLUTION:
         self.Create_Robot
 
         os.system(f"start /B python simulate.py {directOrGUI} {self.myID} 2>&1 &")
-    
-    def Wait_For_Simulation_To_End(self):
-        while not os.path.exists(f"fitness{self.myID}.txt"):
-            time.sleep(0.025)
 
-        f = open(f"fitness{self.myID}.txt", "r")
-        self.fitness = f.read()
-        f.close()
+
+    def Wait_For_Simulation_To_End(self):
+        max_attempts = 10  # Number of times to retry
+        wait_time = 0.05  # Delay between attempts in seconds
+
+        while not os.path.exists(f"fitness{self.myID}.txt"):
+            time.sleep(0.01)
+        
+        for attempt in range(max_attempts):
+            try:
+                with open(f"fitness{self.myID}.txt", "r") as f:
+                    self.fitness = float(f.read().strip())
+                break
+            except PermissionError:
+                print(f"Attempt {attempt + 1}: File locked, retrying...")
+                time.sleep(wait_time)
+        else:
+            print(f"Failed to open fitness{self.myID}.txt after {max_attempts} attempts.")
+    
         os.system(f"del fitness{self.myID}.txt")
 
     def Set_ID(self, nextAvailableID):
         self.myID = nextAvailableID
-
 
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
