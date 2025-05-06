@@ -8,5 +8,6 @@ import constants as c
 from simulation import SIMULATION
 import sys
 
+
 simulation = SIMULATION("GUI",None)
 simulation.Run()

@@ -17,8 +17,11 @@ torso_frontleg_max_force = 50
 numSensorNeurons = 5
 numMotorNeurons = 8
 
-numberOfGenerations = 20
-populationSize = 5
+numberOfGenerations = 100
+populationSize = 50
+randomIndPerGen = int(.1 * populationSize)
+
+# make sure plotSampleSize is <= populationSize
+plotSampleSize = 10
 
 motorJointRange = .2
-

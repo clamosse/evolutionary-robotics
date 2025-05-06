@@ -11,7 +11,7 @@ class ROBOT:
         self.robotId = p.loadURDF("body.urdf")
         self.solutionID = solutionID
         if solutionID is None:
-            brain_file = "best_brain.nndf"
+            brain_file = "best_brain_B.nndf"
         else:
             brain_file = f"brain{solutionID}.nndf"
 
